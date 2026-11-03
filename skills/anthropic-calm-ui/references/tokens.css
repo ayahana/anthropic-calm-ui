@@ -1,0 +1,102 @@
+/*
+ * 独立适配起点，不是 Anthropic 官方 token，也不是原站测量结果。
+ * 本文件所有色值、尺寸、比例、时长与断点均为适配建议。
+ * 仅迁移当前任务所需变量；优先映射到项目已有 token，勿直接覆盖全局。
+ * 字体均为本地系统回退；不包含或下载品牌字体资产。
+ * 色彩对比需针对实际组件组合验证；暖灰边线不能充当唯一必要控件边界。
+ */
+:root {
+  /* 适配建议：中性角色，不必替换现有品牌色。 */
+  --calm-canvas: #f7f6f2;
+  --calm-surface: #ffffff;
+  --calm-surface-soft: #efeee8;
+  --calm-text: #242421;
+  --calm-text-muted: #62625c;
+  --calm-border-soft: #d8d7cf; /* 仅装饰分隔；非唯一可操作边界。 */
+  --calm-border-control: #85857b;
+  --calm-action: #242421;
+  --calm-on-action: #ffffff;
+  --calm-action-hover: #3a3a35;
+  --calm-accent: #a5472e;
+  --calm-focus: #245eac;
+  --calm-success: #376442;
+  --calm-warning: #79540f;
+  --calm-danger: #a52f2f;
+
+  /* 适配建议：展示字体仅用于需要编辑气质的短标题。 */
+  --calm-font-ui: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --calm-font-display: Georgia, "Songti SC", "Noto Serif CJK SC",
+    "Source Han Serif SC", serif;
+  --calm-body-size: 1rem;
+  --calm-small-size: 0.875rem;
+  --calm-body-leading: 1.6;
+  --calm-ui-leading: 1.4;
+  --calm-heading-leading: 1.18;
+
+  /* 适配建议：选择需要的级别，不要求每级都使用。 */
+  --calm-space-1: 0.25rem;
+  --calm-space-2: 0.5rem;
+  --calm-space-3: 0.75rem;
+  --calm-space-4: 1rem;
+  --calm-space-5: 1.5rem;
+  --calm-space-6: 2rem;
+  --calm-space-7: 3rem;
+  --calm-space-8: 4.5rem;
+  --calm-radius-control: 0.5rem;
+  --calm-radius-panel: 0.875rem;
+  --calm-shadow-overlay: 0 0.5rem 2rem rgb(24 24 20 / 10%);
+  --calm-reading-width: 42rem;
+  --calm-page-width: 76rem;
+  --calm-duration: 140ms;
+}
+
+/* 适配建议：可选的局部类，非全局 reset 或完整组件库。 */
+.calm-ui {
+  color: var(--calm-text);
+  font-family: var(--calm-font-ui);
+  font-size: var(--calm-body-size);
+  line-height: var(--calm-body-leading);
+  background: var(--calm-canvas);
+}
+
+.calm-ui :focus-visible {
+  outline: 2px solid var(--calm-focus);
+  outline-offset: 3px;
+}
+
+.calm-ui .calm-numeric { font-variant-numeric: tabular-nums; }
+
+/* 仅显式选入的轻量反馈；不覆盖全站动画，也不改第三方交互语义。 */
+.calm-ui .calm-feedback {
+  transition: background-color var(--calm-duration) ease,
+    border-color var(--calm-duration) ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calm-ui .calm-feedback { transition: none; }
+}
+
+/*
+ * 可选深色适配建议；没有观察或测量 Claude 深色应用界面。
+ * 仅在显式设置 data-theme="dark" 的局部根节点启用，不反转图片或品牌素材。
+ * 保持同样的语义映射，用不同明度区分层级，不强制暖白背景。
+ */
+.calm-ui[data-theme="dark"] {
+  --calm-canvas: #20211f;
+  --calm-surface: #292a27;
+  --calm-surface-soft: #33342f;
+  --calm-text: #f2f1e9;
+  --calm-text-muted: #b9bbb0;
+  --calm-border-soft: #484b42;
+  --calm-border-control: #92978a;
+  --calm-action: #eeeede;
+  --calm-on-action: #252620;
+  --calm-action-hover: #d8dccb;
+  --calm-accent: #efa88d;
+  --calm-focus: #9bc4ff;
+  --calm-success: #a2d4a7;
+  --calm-warning: #e4c279;
+  --calm-danger: #ffaaa3;
+  --calm-shadow-overlay: 0 0.5rem 2rem rgb(0 0 0 / 28%);
+}
