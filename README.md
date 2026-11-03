@@ -1,65 +1,119 @@
-# Anthropic-inspired Calm UI
+<div align="center">
 
-中文优先、跨领域的独立前端设计 Skill。面向不同网站、应用和组件的新建、重设计、局部调整与评审，将公开 Anthropic / Claude 界面所启发的清晰层级、阅读节奏、内容优先和克制交互，适配到用户自己的产品。
+# Anthropic Calm UI
 
-技能目录和调用名为 `anthropic-calm-ui`。按产品任务、品牌与设备调整表达，保留平静、人文的设计方向，不把所有项目变成同一套米白模板。
+**受 Anthropic / Claude 界面启发的前端设计 Skill**
 
-**非官方项目。** 未获得 Anthropic 背书，不是官方 frontend-design Skill 的副本，不提供品牌复刻、官方字体或商标素材。名称只描述研究来源。
+清晰的排版 · 舒适的阅读节奏 · 克制的交互
 
-## 适用场景
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+[![Validate skill](https://github.com/ayahana/anthropic-calm-ui/actions/workflows/validate.yml/badge.svg)](https://github.com/ayahana/anthropic-calm-ui/actions/workflows/validate.yml)
+[![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-black?style=flat-square)](skills/anthropic-calm-ui/SKILL.md)
 
-- 从零建内容站或产品网站：从受众与内容结构决定页面、导航和阅读节奏。
-- 品牌营销、消费产品：保留鲜明品牌与产品图片，让主要信息和行动更清楚。
-- 生产力工具、多页后台：按任务选择密度，验证跨页路径与状态，不把工作区做成宣传页。
-- 移动界面与组件局部改进：兼顾软键盘、安全区、交互状态和原有业务约束。
-- 仅评审：给出有依据的改进建议与未验证项，不擅自修改项目。
+[设计特点](#设计特点) · [安装](#安装) · [快速上手](#快速上手) · [参与贡献](#参与贡献)
 
-保留现有框架、设计系统、品牌色与业务流程。浅色和深色 token 都是独立建议，**不等于原站测量或原站主题行为**。不需要依赖、联网字体、API 密钥或后台服务。
+</div>
+
+## 项目简介
+
+Anthropic Calm UI 为 AI 编程助手提供前端设计指导，支持从零制作网站、改进现有界面，以及评审页面和组件。
+
+它从 Anthropic / Claude 的公开界面中提炼内容层级、排版节奏与交互方式，帮助 AI 根据你的产品任务做设计选择。内容站可以舒展，工作台可以紧凑，鲜明的品牌色和深色主题也可以保留。
+
+技能以中文编写，沿用项目已有的框架、组件和设计系统。使用指导本身无需 API 密钥、额外服务或字体下载。
+
+## 设计特点
+
+- **先安排内容，再决定外观。** 从读者要理解的信息、用户要完成的任务出发，组织页面结构与主要操作。
+- **让排版形成层级。** 用字号、字重、对齐和间距区分主次，兼顾中文长标题、正文阅读和中英混排。
+- **保留产品自己的性格。** 按品牌选择颜色和字体，按任务选择信息密度，支持浅色与深色界面。
+- **让交互清楚可用。** 关注键盘焦点、加载与错误反馈、窄屏布局，以及实际前景和背景的色彩对比。
+
+### 可以用在哪些地方？
+
+| 场景 | 设计重点 |
+| --- | --- |
+| 官网、博客、内容站 | 标题层级、正文行宽、章节节奏与清楚的行动入口 |
+| 产品介绍、品牌页面 | 保留品牌色与图片，让产品信息和主要操作更突出 |
+| 工作台、数据后台 | 紧凑的布局、易扫读的表格与稳定的工具栏 |
+| 表单、弹窗、移动组件 | 清晰标签、状态反馈、触控与键盘操作 |
+| 现有界面评审 | 找出具体的阅读和操作问题，给出范围明确的改进建议 |
+
+更多设计取舍见 [场景示例](skills/anthropic-calm-ui/references/patterns.md)。
 
 ## 安装
 
-技能本体在 `skills/anthropic-calm-ui/`，包含 `SKILL.md`、`references/` 与零依赖的 `scripts/`。将整个文件夹复制到你使用的工具所支持的技能目录，保留子目录。安装位置和发现方式以该工具当前说明为准；本仓库不执行安装或修改配置。
+### 方式一：使用 skills CLI
 
-如果使用支持 `$技能名` 的客户端，可以这样请求：
-
-> 使用 $anthropic-calm-ui 从零设计一个蓝色品牌的中文内容网站，包含首页、专题和文章页。保持清晰、克制的阅读体验，不加账户或支付，沿用当前项目技术栈。
-
-> 使用 $anthropic-calm-ui 检查当前页面。保留框架、侧栏、品牌色和业务流程，只提出三项改善建议，不改代码。
-
-> 使用 $anthropic-calm-ui 改善这个深色确认弹窗。只改当前组件，复用已有变量，不新增依赖，验证焦点、长中文和失败状态。
-
-若客户端未发现技能，可直接提供 `SKILL.md` 及它按需引用的文件。未在所有第三方客户端逐一安装测试。
-
-## 仓库结构
-
-- `skills/anthropic-calm-ui/SKILL.md`：触发范围、设计决策与交付边界。
-- `skills/anthropic-calm-ui/references/`：历史来源、适配案例、可选 token 与验证边界。
-- `skills/anthropic-calm-ui/scripts/check_contrast.py`：随技能安装的配色回归检查；仓库 `scripts/check_contrast.py` 仅作入口，避免复制实现。
-- `tests/`：验证计算和失败路径的测试。
-- `CONTRIBUTING.md`：贡献与来源要求。
-- `PROVENANCE.md`：素材来源与授权边界。
-- `RELEASE_CHECKLIST.md`：发布前确认项。
-
-## 验证
-
-需要 Python 3.9 或更高版本，无第三方依赖：
+需要 Node.js 22.20 或更高版本，详见 [skills CLI 官方说明](https://github.com/vercel-labs/skills#install-a-skill)。在你的项目目录运行：
 
 ```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/check_contrast.py
-python3 scripts/check_contrast.py --json
+npx skills add ayahana/anthropic-calm-ui --skill anthropic-calm-ui
 ```
 
-脚本直接读取 CSS 中的实色 token，检查两主题共 52 组前景/背景；低于门槛退出码为 1，缺失、重复受测 token 或不支持的颜色输入退出码为 2。它不是通用 CSS 解析器，不解析变量、透明度、渐变或层叠。改了 CSS 语法需要同时维护测试，不要忽略失败。
+按提示选择要安装到的 AI 编程助手。默认安装到当前项目；需要跨项目使用时，在命令末尾加上 `-g`。
 
-已测试技能文件夹脱离仓库后能运行配色脚本，但这不等于第三方客户端安装或发现测试。六类文字场景演练检查相应回答的范围控制与跨领域适配，不是实际 UI 效果验证或 A/B 盲评。详见 [验证记录](VALIDATION.md)。
+### 方式二：手动复制
 
-仓库提供 GitHub Actions 配置；本地运行成功不代表远程 CI 已执行。无需网页构建步骤，因为交付物是指导 Skill，不是组件库或完整应用。
+克隆仓库，或在 GitHub 点击 **Code → Download ZIP** 下载：
 
-## 证据与限制
+```sh
+git clone https://github.com/ayahana/anthropic-calm-ui.git
+```
 
-桌面公共页面的历史观察保留在 [观察笔记](skills/anthropic-calm-ui/references/evidence.md)，原始截图未随包提供，本次上传检查未重新执行官网视觉观察。2026-11-03 的历史主题记录描述：dark 媒体查询为 true 时，Claude 官网呈现深色，Anthropic 公司首页为浅色主体与深色页脚分区；第一轮未记录媒体查询，因此不构成完整受控双状态实验。详见 [主题复核记录](skills/anthropic-calm-ui/references/theme-behavior.md)。这些记录不能证明网站当前外观，也不覆盖登录后工作区、原生 App、手机布局或完整键盘与读屏行为。
+将仓库中的 `skills/anthropic-calm-ui/` 整个文件夹复制到客户端配置的技能目录，保留 `SKILL.md`、`references/` 和 `scripts/`。客户端的具体路径可查阅 [skills CLI 的 Agent 目录参考](https://github.com/vercel-labs/skills/blob/main/docs/agents.md)。
+
+安装后，在客户端的技能列表中确认出现 `anthropic-calm-ui`，再尝试下面的请求。各客户端的发现与启用方式以其实际版本为准。
+
+## 快速上手
+
+安装后，在 AI 编程助手中指定技能名称并描述需求。支持 `$技能名` 的客户端可以直接复制以下示例：
+
+**从零做一个网站**
+
+```text
+使用 $anthropic-calm-ui 做一个中文科技博客首页，蓝色品牌，重点展示文章和专题。
+```
+
+**改进现有页面**
+
+```text
+使用 $anthropic-calm-ui 改善当前后台的排版和表格层级，保留侧栏、品牌色和现有功能。
+```
+
+**只评审，不改代码**
+
+```text
+使用 $anthropic-calm-ui 评审当前页面，给出最值得改的三点，先不修改代码。
+```
+
+附上当前页面截图、已有代码或真实内容，可以让建议更贴合你的项目。不支持 `$` 调用的客户端可直接指定技能名，或让助手读取 [SKILL.md](skills/anthropic-calm-ui/SKILL.md)。
+
+## 技能里有什么？
+
+| 内容 | 用途 |
+| --- | --- |
+| [SKILL.md](skills/anthropic-calm-ui/SKILL.md) | 技能入口与设计工作方式 |
+| [场景示例](skills/anthropic-calm-ui/references/patterns.md) | 内容站、商店、创作工具与后台的设计取舍 |
+| [示例 CSS](skills/anthropic-calm-ui/references/tokens.css) | 可选的浅色 / 深色变量、字体回退与基础样式 |
+| [配色检查](skills/anthropic-calm-ui/references/validation.md) | 示例颜色的对比值与检查脚本用法 |
+| [观察笔记](skills/anthropic-calm-ui/references/evidence.md) | 风格来源与历史页面观察 |
+
+示例 CSS 可按需映射到项目现有变量中。实际界面效果取决于内容、实现与验证；当前仓库的场景演练为文字方案，尚未提供渲染后的页面截图，详见 [验证记录](VALIDATION.md)。
+
+## 参与贡献
+
+欢迎改进设计指导、中文排版与场景示例。提交前请阅读 [贡献指南](CONTRIBUTING.md)。
+
+维护配色或检查脚本时，在仓库根目录运行以下命令，需要 Python 3.9 或更高版本，无第三方 Python 依赖：
+
+```sh
+python -m unittest discover -s tests -v
+python scripts/check_contrast.py
+```
 
 ## 许可证
 
-本项目的独立编写内容采用 [MIT License](LICENSE)，版权署名为 ayahana。Anthropic / Claude 的品牌、网站、字体和其他第三方内容不因本项目的许可证而获得授权。素材来源与适用范围见 [PROVENANCE.md](PROVENANCE.md)。
+[MIT License](LICENSE) © 2026 ayahana。
+
+本项目为独立、非官方 Skill，未获 Anthropic 背书。示例样式为独立适配建议；Anthropic / Claude 的品牌、字体和其他第三方内容不包含在本项目的许可中。详细来源见 [PROVENANCE.md](PROVENANCE.md)。
